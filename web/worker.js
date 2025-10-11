@@ -6,6 +6,12 @@ async function loadPyodideAndPackages() {
     try {
         status_append("runtime loaded. installing libraries ...");
 
+        // Сначала устанавливаем зависимости
+        await self.pyodide.runPythonAsync(`
+            import micropip
+            await micropip.install(['humanize', 'requests', 'plotly'])
+        `);
+
         let url = new URL(self.location.pathname.replace('worker.js', ''), self.location.origin);
 
         const versionResponse = await fetch(new URL('current_version.txt', url));
