@@ -34,16 +34,28 @@ jobs:
         run: |
           cat > pyproject.toml << 'EOF'
           [build-system]
-          requires = ["setuptools>=61.0", "wheel"]
+          requires = ["setuptools"]
           build-backend = "setuptools.build_meta"
 
           [project]
           name = "melbalabs_summarize_consumes"
-          version = "2025.11.21"
-          description = "Turtle WoW consumables analyzer for Ambershire server"
-          
+          authors = [
+              {name = "melba"},
+          ]
+          dynamic = ["version", "dependencies", "optional-dependencies"]
+
+          [project.urls]
+          Homepage = "https://github.com/whtmst/summarize_consumes"
+
+          [project.scripts]
+          summarize_consumes = "melbalabs.summarize_consumes.main:main"
+
           [tool.setuptools.packages.find]
           where = ["src"]
+
+          [tool.setuptools.dynamic]
+          version = {attr = "melbalabs.summarize_consumes.package.VERSION"}
+          dependencies = {file = ["deps/requirements.txt"]}
           EOF
       
       - name: Create package structure
