@@ -52,7 +52,8 @@ self.onmessage = async (event) => {
     await pyodide.runPythonAsync(`
         from melbalabs.summarize_consumes.main import main
         argv = ['log.txt', '--write-summary', '--prices-server', 'ambershire',
-                '--write-damage-output', '--write-healing-output', '--write-damage-taken-output']
+                '--write-damage-output', '--write-healing-output', '--write-damage-taken-output',
+                '--expert-deterministic-logs']  # ← Добавьте этот флаг
         main(argv)
     `);
     
