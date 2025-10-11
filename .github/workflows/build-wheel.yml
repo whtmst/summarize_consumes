@@ -29,7 +29,7 @@ jobs:
 
           [project]
           name = "melbalabs_summarize_consumes"
-          version = "2025.1121.ambershire"
+          version = "2025.11.21"  # ← ИСПРАВЛЕНО: PEP 440 формат
           description = "Turtle WoW consumables analyzer for Ambershire server"
           
           [tool.setuptools.packages.find]
@@ -46,12 +46,23 @@ jobs:
           # Создаем __init__.py если нужно
           touch src/melbalabs/__init__.py
           touch src/melbalabs/summarize_consumes/__init__.py
+          
+          # Создаем package.py с правильной версией
+          cat > src/melbalabs/summarize_consumes/package.py << 'EOF'
+          VERSION = "2025.11.21"
+          PROJECT_NAME = "melbalabs_summarize_consumes"
+          PROJECT_URL = "https://github.com/whtmst/summarize_consumes"
+          EOF
       
       - name: Build wheel
         run: python -m build --wheel
       
+      - name: Upload wheel to web folder
+        run: |
+          mkdir -p web
+          cp dist/*.whl web/
+      
       - name: Upload wheel artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: python-wheel
-          path: dist/*.whl
+          path: './web'
