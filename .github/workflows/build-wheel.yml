@@ -61,6 +61,12 @@ jobs:
         run: |
           mkdir -p web
           cp dist/*.whl web/
+          # Создаем current_version.txt
+          echo "2025.11.21" > web/current_version.txt
+          # Копируем остальные файлы для сайта
+          cp index.html web/ 2>/dev/null || true
+          cp style.css web/ 2>/dev/null || true
+          cp worker.js web/ 2>/dev/null || true
       
       - name: Upload wheel artifact
         uses: actions/upload-pages-artifact@v3
