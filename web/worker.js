@@ -6,10 +6,10 @@ async function loadPyodideAndPackages() {
     try {
         status_append("runtime loaded. installing libraries ...");
 
-        // Сначала устанавливаем зависимости
+        // Сначала устанавливаем ВСЕ зависимости
         await self.pyodide.runPythonAsync(`
             import micropip
-            await micropip.install(['humanize', 'requests', 'plotly'])
+            await micropip.install(['humanize', 'requests', 'plotly', 'typing-extensions'])
         `);
 
         let url = new URL(self.location.pathname.replace('worker.js', ''), self.location.origin);
