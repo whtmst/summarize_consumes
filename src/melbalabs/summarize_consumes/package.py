@@ -1,6 +1,3 @@
-import importlib.metadata
-
-VERSION = "2025.11.21"  # ← Исправлено на PEP 440 формат
-PROJECT_NAME = __package__
-PROJECT_METADATA = importlib.metadata.metadata(PROJECT_NAME)
-PROJECT_URL = PROJECT_METADATA["Project-URL"]
+VERSION = "2025.11.21"
+PROJECT_NAME = "melbalabs_summarize_consumes"
+PROJECT_URL = "Homepage, https://github.com/whtmst/summarize_consumes"
