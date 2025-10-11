@@ -69,10 +69,11 @@ jobs:
           cp deps/requirements.txt deps/ 2>/dev/null || true
           touch src/melbalabs/__init__.py
           touch src/melbalabs/summarize_consumes/__init__.py
+          # ВАЖНО: перезаписываем package.py исправленной версией
           cat > src/melbalabs/summarize_consumes/package.py << 'EOF'
           VERSION = "2025.11.21"
           PROJECT_NAME = "melbalabs_summarize_consumes"
-          PROJECT_URL = "https://github.com/whtmst/summarize_consumes"
+          PROJECT_URL = "Homepage, https://github.com/whtmst/summarize_consumes"
           EOF
       
       - name: Build wheel
