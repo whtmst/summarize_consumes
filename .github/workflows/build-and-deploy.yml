@@ -61,8 +61,12 @@ jobs:
       - name: Create package structure
         run: |
           mkdir -p src/melbalabs/summarize_consumes
+          mkdir -p deps
+          # Копируем все Python файлы
           cp *.py src/melbalabs/summarize_consumes/ 2>/dev/null || true
           cp -r melbalabs/summarize_consumes/* src/melbalabs/summarize_consumes/ 2>/dev/null || true
+          # Копируем зависимости
+          cp deps/requirements.txt deps/ 2>/dev/null || true
           touch src/melbalabs/__init__.py
           touch src/melbalabs/summarize_consumes/__init__.py
           cat > src/melbalabs/summarize_consumes/package.py << 'EOF'
