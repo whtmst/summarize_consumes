@@ -274,7 +274,9 @@ self.onmessage = async (event) => {
         
         // Выводим результат
         if (analysisResult && analysisResult.length > 0) {
-            output_append('summaryoutput', analysisResult);
+            // Заменяем \n на настоящие переносы строк
+            const formattedResult = analysisResult.replace(/\\n/g, '\n');
+            output_append('summaryoutput', formattedResult);
         } else {
             output_append('summaryoutput', "Analysis completed but result is empty. Check browser console for details.");
         }
