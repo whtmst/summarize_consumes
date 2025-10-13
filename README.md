@@ -535,12 +535,12 @@ This project does not and will not deal with gathering prices.
 
 You have to gather the prices and publish a public price list in the correct format somewhere. It's up to you to figure out how to do it. Then it's extremely easy to add it as a data source.
 
-https://github.com/melbaa/summarize_consumes/blob/5aad5c6c0ea717971da6c9396c16956c23bda688/src/melbalabs/summarize_consumes/main.py#L79
-https://github.com/melbaa/summarize_consumes/blob/5aad5c6c0ea717971da6c9396c16956c23bda688/src/melbalabs/summarize_consumes/main.py#L2536-L2540
+https://github.com/whtmst/summarize_consumes/blob/5aad5c6c0ea717971da6c9396c16956c23bda688/src/melbalabs/summarize_consumes/main.py#L79
+https://github.com/whtmst/summarize_consumes/blob/5aad5c6c0ea717971da6c9396c16956c23bda688/src/melbalabs/summarize_consumes/main.py#L2536-L2540
 
 Useful to undestand
-https://github.com/melbaa/summarize_consumes/blob/5aad5c6c0ea717971da6c9396c16956c23bda688/src/melbalabs/summarize_consumes/main.py#L1118
-https://github.com/melbaa/summarize_consumes/blob/5aad5c6c0ea717971da6c9396c16956c23bda688/src/melbalabs/summarize_consumes/main.py#L342-L343
+https://github.com/whtmst/summarize_consumes/blob/5aad5c6c0ea717971da6c9396c16956c23bda688/src/melbalabs/summarize_consumes/main.py#L1118
+https://github.com/whtmst/summarize_consumes/blob/5aad5c6c0ea717971da6c9396c16956c23bda688/src/melbalabs/summarize_consumes/main.py#L342-L343
 
 Best case you use this project's code itself as a library to get the list of consumables or you'll always be out of sync.
 ```
